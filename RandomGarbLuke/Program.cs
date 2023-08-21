@@ -42,9 +42,9 @@ class Program
 
         IConfiguration config = configuration.Build();
 
-        //var y = config.GetRequiredSection("Database:ConnectionString").Value;
-
-        var dbConnection = new SqlObjectClass(config.GetConnectionString("SqlServer").ToString());
+        string y = config.GetConnectionString("DefaultConnection");
+        
+        var dbConnection = new SqlObjectClass(y);
 
 
         //db.Add(new Boy("Jimmy", "McGill"));
