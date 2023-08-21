@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 using System.Data.Common;
 using System.Linq;
-
 namespace RandomGarbLuke
 {
 	public class SqlObject

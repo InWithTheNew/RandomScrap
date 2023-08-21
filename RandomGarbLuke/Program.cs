@@ -1,5 +1,8 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration.Json;
 
 namespace RandomGarbLuke;
 
@@ -17,8 +20,8 @@ class Program
         //HeightGetter.GetHeightinCM();
         //HeightGetter.ReturnHeightAsInt();
 
-        IWriteHeight Another = new Boy();
-        Another.WriteClass();
+        //IWriteHeight Another = new Boy();
+        //Another.WriteClass();
         //// static class calls
         //Shoes.GetShoes();
         //Shoes.AddShoes(1, 2);
@@ -26,19 +29,25 @@ class Program
         ////var Megan = new Girl();
         ////Megan.GetShoes();
 
-        var PersonStuff = HeightGatherer(FirstName: "Luke", LastName: "Lucas");
-        var Height = PersonStuff.GetRequiredService<IGetHeight>();
-        //Console.WriteLine(Height);
-        var ClassHeight = PersonStuff.GetRequiredService<IGetClassHeight>();
-
-        //var s = new SqlObject("Server=tcp:sqlserverforadamlol.database.windows.net,1433;" +
-        //    "Initial Catalog=sqldatabaseforadamlol;Persist Security Info=False;" +
-        //    "User ID=sqlserverforadamlol;Password=Password1;MultipleActiveResultSets=False;" +
-        //    "Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;");
+        //var PersonStuff = HeightGatherer(FirstName: "Luke", LastName: "Lucas");
+        //var Height = PersonStuff.GetRequiredService<IGetHeight>();
+        ////Console.WriteLine(Height);
+        //var ClassHeight = PersonStuff.GetRequiredService<IGetClassHeight>();
 
         //var t = s.GetResults();
 
         //s.AddResults("Lee", "Grix", 180, "dbo.Persons");
+        var configuration = new ConfigurationBuilder()
+            .AddJsonFile("appsettings.json",optional: false, reloadOnChange: true);
+
+        IConfiguration config = configuration.Build();
+
+        //var y = config.GetRequiredSection("Database:ConnectionString").Value;
+
+        var dbConnection = new SqlObjectClass(config.GetConnectionString("SqlServer").ToString());
+
+
+        //db.Add(new Boy("Jimmy", "McGill"));
 
         Console.ReadKey();
     }

@@ -10,5 +10,14 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\net7.0\appsettings.json">
+      <Link>appsettings.json</Link>
+    </None>
   </ItemGroup>
 </Project>
