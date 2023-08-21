@@ -5,41 +5,43 @@ namespace RandomGarbLuke
 	{
         private readonly IGetHeight _personInjector;
 
-        public int[] _studentsHeight = { };
-
-        public int _height;
+        List<int> AllMembersHeights = new();
 
         public Classroom(IGetHeight person)
         {
             _personInjector = person;
-
-            _height = _personInjector.GetHeightinCM()
             
-            _studentsHeight.Append(_personInjector.GetHeightinCM());
+            AllMembersHeights.Add(_personInjector.GetHeightinCM());
         }
 
         public Classroom(Person person)
 		{
 			int x = person.GetHeightinCM();
-			_studentsHeight?.Append(person.GetHeightinCM());
-		}
+            AllMembersHeights.Add(_personInjector.GetHeightinCM());
+        }
 
         public Classroom(Boy person)
         {
             int x = person.GetHeightinCM();
-            _studentsHeight?.Append(person.GetHeightinCM());
+            AllMembersHeights.Add(_personInjector.GetHeightinCM());
         }
 
         public Classroom(Girl person)
         {
             int x = person.GetHeightinCM();
-            _studentsHeight?.Append(person.GetHeightinCM());
+            AllMembersHeights.Add(_personInjector.GetHeightinCM());
         }
 
-        public int[] GetClassHeight()
+        public List<int> GetClassHeight()
 		{
-			return _studentsHeight;
+			return AllMembersHeights;
 		}
+
+        public int GetClassHeightAverage()
+        {
+            var x = (int)AllMembersHeights.Average();
+            return x;
+        }
 	}
 }
 

@@ -3,7 +3,7 @@ namespace RandomGarbLuke
 {
 	public interface IGetClassHeight
 	{
-		int[] GetClassHeight();
+		List<int> GetClassHeight();
 	}
 }
 

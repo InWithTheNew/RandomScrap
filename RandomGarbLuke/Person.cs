@@ -2,18 +2,17 @@
 
 namespace RandomGarbLuke;
 
-public class Person : IGetHeight
+abstract public class Person : IGetHeight, IWriteHeight
 {
 	private int _legs = 2;
 	private int _arms = 2;
 	private int _heads = 1;
 	private string _shoes = "Adidas";
-	private int _height = 180;
+	abstract internal int _height { get; }
 
 	public Person()
 	{
 		_legs = 4;
-		Console.WriteLine("I am a person");
 	}
 
 	public Person(int legs, int arms)

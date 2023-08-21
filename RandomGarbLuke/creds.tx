@@ -1,0 +1,1 @@
+﻿Server=tcp:sqlserverforadamlol.database.windows.net,1443;Initial Catalog=sqldatabaseforadamlol;Persist Security Info=False;User ID=sqlserverforadamlol;Password=Password1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
