@@ -2,7 +2,6 @@
 namespace RandomGarbLuke
 {
 
-
 	public class Boy : Person
 	{
 

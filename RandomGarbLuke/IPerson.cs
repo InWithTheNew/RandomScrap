@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RandomGarbLuke
+{
+    internal interface IPerson
+    {
+        public void AddToClass()
+        {
+        }
+
+        public List<Class> GetClasses();
+    }
+
+}

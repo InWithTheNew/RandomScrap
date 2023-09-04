@@ -8,8 +8,7 @@ namespace RandomGarbLuke
 {
 	public class SqlObjectClass : DbContext
 	{
-        public DbSet<string> FirstName { get; set; }
-        public DbSet<string> LastName { get; set; }
+        public DbSet<Persons> Persons { get; set; }
 
 		public string _connectionString;
 
@@ -22,6 +21,7 @@ namespace RandomGarbLuke
         {
             // connect to sql server with connection string from app settings
             options.UseSqlServer(_connectionString);
+
         }
 
 
