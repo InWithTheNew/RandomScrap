@@ -30,7 +30,7 @@ namespace PersonsRegister.Services
 
             x.AddSingleton<IConnectionSettings>(new ConnectionSettings("myconnectionstring"));
 
-            //x.AddSingleton<ISqlConnectionFactory, SqlConnectionFactory>();
+            x.AddSingleton<ISqlConnectionFactory, SqlConnectionFactory>();
             // create an ioc extension method (extend IServiceCollection) in the ConnectionContexts project, method called "addSql" and add the SqlConnectionFactory to services.
 
             return x.BuildServiceProvider();
@@ -38,6 +38,7 @@ namespace PersonsRegister.Services
 
         public Classes()
         {
+            
             var configuration = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
 
