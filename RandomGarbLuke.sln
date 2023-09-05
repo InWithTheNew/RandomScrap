@@ -4,18 +4,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomGarbLuke", "RandomGarbLuke\RandomGarbLuke.csproj", "{937F3121-4432-47CF-B72F-DA967B5D91D7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonsRegister", "PersonsRegister\PersonsRegister.csproj", "{E3D2AE79-ACC0-4BF9-8017-F3F0BCF886BE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{36916BAC-F6B8-489E-9035-399A1044A2D7} = {36916BAC-F6B8-489E-9035-399A1044A2D7}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonsRegister", "PersonsRegister\PersonsRegister.csproj", "{E3D2AE79-ACC0-4BF9-8017-F3F0BCF886BE}"
-	ProjectSection(ProjectDependencies) = postProject
-		{36916BAC-F6B8-489E-9035-399A1044A2D7} = {36916BAC-F6B8-489E-9035-399A1044A2D7}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{36916BAC-F6B8-489E-9035-399A1044A2D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{36916BAC-F6B8-489E-9035-399A1044A2D7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConnectionContexts", "ConnectionContexts\ConnectionContexts.csproj", "{40E01D1A-58EE-4F9E-97BC-A167863C7257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectionContexts", "ConnectionContexts\ConnectionContexts.csproj", "{40E01D1A-58EE-4F9E-97BC-A167863C7257}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

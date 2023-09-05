@@ -10,6 +10,10 @@ namespace RandomGarbLuke
         public Girl()
 		{
 		}
+        public Girl(int Height)
+        {
+            _height = Height;
+        }
     }
 }
 

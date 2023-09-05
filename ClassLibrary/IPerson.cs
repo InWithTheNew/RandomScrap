@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    internal interface IPerson
+    public interface IPerson
     {
         public void AddToClass()
         {

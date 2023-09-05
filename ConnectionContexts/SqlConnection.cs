@@ -3,9 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConnectionContexts
 {
-    public class SqlConnection<T> : DbContext
+    public class SqlConnection<T> : DbContext, ISqlConnection
+        where T : class
     {
-        public DbSet<Person> Person { get; set; }
+        public DbSet<T> Person { get; set; }
 
         public string _connectionString;
 

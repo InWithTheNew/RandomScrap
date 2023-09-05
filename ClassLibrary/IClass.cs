@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    internal interface IClass
+    public interface IClass
     {
-        void AddStudentToClass(Person x);
+        void AddStudentToClass(Person student);
         void RemoveStudentFromClass(Person student);
         List<Person> GetStudentsFromClass();
 

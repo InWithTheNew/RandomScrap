@@ -2,12 +2,13 @@
 
 namespace ClassLibrary;
 
-abstract public class Person 
+abstract public class Person : IPerson
 {
 	private int _legs = 2;
 	private int _arms = 2;
 	private int _heads = 1;
 	private string _shoes = "Adidas";
+	private List<Class> Classes = new List<Class>();
 	abstract internal int _height { get; }
 
 	public Person()
@@ -32,5 +33,9 @@ abstract public class Person
 		return _height;
 	}
 
+    public List<Class> GetClasses()
+    {
+		return Classes;
+    }
 }
 
