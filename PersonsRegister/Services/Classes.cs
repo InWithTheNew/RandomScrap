@@ -24,14 +24,8 @@ namespace PersonsRegister.Services
         {
             IServiceCollection x = new ServiceCollection();
 
-            //x.AddSingleton<IPerson, Person>();
-            //x.AddSingleton<IClass, Class>();
-            //x.AddSingleton<ISqlServerConnection, SqlConnection>();
-
             x.AddSingleton<IConnectionSettings>(new ConnectionSettings("myconnectionstring"));
-
-            x.AddSingleton<ISqlConnectionFactory, SqlConnectionFactory>();
-            // create an ioc extension method (extend IServiceCollection) in the ConnectionContexts project, method called "addSql" and add the SqlConnectionFactory to services.
+            x.AddSql();
 
             return x.BuildServiceProvider();
         }

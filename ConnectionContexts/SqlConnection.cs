@@ -2,7 +2,7 @@
 
 namespace ConnectionContexts
 {
-    public class SqlConnection<T> : DbContext, ISqlConnection<T>
+    internal sealed class SqlConnection<T> : DbContext, ISqlConnection<T>
         where T : class
     {
         public readonly string _connectionString;

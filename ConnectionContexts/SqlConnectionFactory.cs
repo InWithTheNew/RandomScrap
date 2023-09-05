@@ -2,9 +2,8 @@
 
 namespace ConnectionContexts
 {
-    public sealed class SqlConnectionFactory : ISqlConnectionFactory
+    internal sealed class SqlConnectionFactory : ISqlConnectionFactory
     {
-        // needs to be added to a class which is also IOC'd, like "ConnectionSettings" with a connectionstring property
         public readonly IConnectionSettings _connectionSettings;
 
         public SqlConnectionFactory(IConnectionSettings connectionSettings)
