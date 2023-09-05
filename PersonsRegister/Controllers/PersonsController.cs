@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
+using ConnectionContexts;
 using Entities;
 using Microsoft.AspNetCore.Mvc;
-using PersonsRegister.Models;
 
 namespace PersonsRegister.Controllers
 {
@@ -9,6 +10,13 @@ namespace PersonsRegister.Controllers
     [ApiController]
     public class PersonsController : Controller
     {
+        private readonly ISqlConnectionFactory _sqlConnectionFactory;
+
+        public PersonsController(ISqlConnectionFactory sqlConnectionFactory)
+        {
+            _sqlConnectionFactory = sqlConnectionFactory ?? throw new ArgumentNullException(nameof(sqlConnectionFactory));
+        }
+
         //[HttpGet("persons")]
         //public string Get(Guid personId)
         //{
@@ -18,11 +26,13 @@ namespace PersonsRegister.Controllers
         //}
 
         [HttpPost]
-        public string Post([FromBody] Person x)
+        public async Task<IActionResult> Post([FromBody] Person x)
         {
             // save person to db
+            var s = _sqlConnectionFactory.CreatePersonsConnection();
+            await s.Entities.AddAsync(x);
 
-            return x.GetHeightinCM().ToString();
+            return StatusCode((int)System.Net.HttpStatusCode.Accepted);
         }
     }
 }

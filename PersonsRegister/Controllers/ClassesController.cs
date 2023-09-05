@@ -12,11 +12,11 @@ namespace PersonsRegister.Controllers
             return "Classes";
         }
 
-        [HttpPost("classes")]
-        public string Post()
-        {
-            var x = new Boy();
-            return "ClassesPost";
-        }
+        //[HttpPost("classes")]
+        //public string Post()
+        //{
+        //    var x = new Boy();
+        //    return "ClassesPost";
+        //}
     }
 }
