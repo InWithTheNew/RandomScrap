@@ -1,23 +1,22 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ConnectionContexts
 {
-    public class SqlConnection<T> : DbContext, ISqlConnection
+    public class SqlConnection<T> : DbContext, ISqlConnection<T>
         where T : class
     {
-        public DbSet<T> Person { get; set; }
+        public readonly string _connectionString;
 
-        public string _connectionString;
-
-        public SqlConnection(string configuration)
+        public SqlConnection(string connectionString)
         {
-            _connectionString = configuration;
+            _connectionString = connectionString;
         }
+
+        public DbSet<T> Entities { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer();
+            options.UseSqlServer(_connectionString);
         }
     }
 }

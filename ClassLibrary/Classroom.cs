@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 
-namespace ClassLibrary
+namespace Entities
 {
 	public class Classroom 
 	{

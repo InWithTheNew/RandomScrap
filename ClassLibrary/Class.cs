@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace Entities
 {
     public class Class : IClass
     {
@@ -17,13 +17,6 @@ namespace ClassLibrary
 
         private readonly IPerson _person;
 
-        private readonly IServiceProvider _serviceProvider;
-
-        public Class(IServiceProvider ServiceProvider)
-        {
-            _serviceProvider = ServiceProvider;
-        }
-
         public Class(IPerson person)
         {
             _person = person;
@@ -33,7 +26,7 @@ namespace ClassLibrary
         {
             this.ClassName = ClassName;
             // Get Class from Database
-            new SqlConnection<Person>(_connectionString);
+            //new SqlConnection<Person>(_connectionString);
         }
 
         public void AddStudentToClass(Person student)

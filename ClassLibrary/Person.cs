@@ -1,41 +1,39 @@
-﻿using System;
+﻿namespace Entities;
 
-namespace ClassLibrary;
-
-abstract public class Person : IPerson
+public class Person
 {
-	private int _legs = 2;
-	private int _arms = 2;
-	private int _heads = 1;
-	private string _shoes = "Adidas";
-	private List<Class> Classes = new List<Class>();
-	abstract internal int _height { get; }
-
-	public Person()
-	{
-		_legs = 4;
-	}
-
-	public Person(int legs, int arms)
-	{
-		_legs = legs;
-		_arms = arms;
-		Console.WriteLine(String.Format("You have {0} legs and {1} arms!", _legs, _arms));
-	}
-
-    public string GetShoes()
+    public Person(
+        string firstName,
+        string surname,
+        DateTime dob,
+        string gender,
+        int height,
+        int weight)
     {
-		return _shoes;
+        Id = Guid.NewGuid();
+        FirstName = firstName;
+        Surname = surname;
+        Dob = dob;
+        Gender = gender;
+        Height = height;
+        Weight = weight;
     }
 
-	public int GetHeightinCM()
-	{
-		return _height;
-	}
+    public Guid Id { get; set; }
+    public string FirstName { get; set; }
+    public string Surname { get; set; }
+    public DateTime Dob { get; set; }
+    public string Gender { get; set; }
+    public int Height { get; set; }
+    public int Weight { get; set; }
 
-    public List<Class> GetClasses()
-    {
-		return Classes;
-    }
+    //private List<Class> Classes = new List<Class>();
+
+
+
+    //  public List<Class> GetClasses()
+    //  {
+    //return Classes;
+    //  }
 }
 

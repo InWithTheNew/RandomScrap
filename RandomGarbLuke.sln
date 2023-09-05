@@ -10,7 +10,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonsRegister", "PersonsR
 		{36916BAC-F6B8-489E-9035-399A1044A2D7} = {36916BAC-F6B8-489E-9035-399A1044A2D7}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{36916BAC-F6B8-489E-9035-399A1044A2D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "ClassLibrary\Entities.csproj", "{36916BAC-F6B8-489E-9035-399A1044A2D7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConnectionContexts", "ConnectionContexts\ConnectionContexts.csproj", "{40E01D1A-58EE-4F9E-97BC-A167863C7257}"
 EndProject

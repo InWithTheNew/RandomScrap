@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PersonsRegister.Models;
-using RandomGarbLuke;
+﻿using Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace PersonsRegister.Controllers
 {
@@ -13,10 +12,11 @@ namespace PersonsRegister.Controllers
         {
             return "Classes";
         }
+
         [HttpPost("classes")]
-        public string Post([FromBody] Anything y)
+        public string Post()
         {
-            var x = new Boy(y.Y);
+            var x = new Boy();
             return "ClassesPost";
         }
     }

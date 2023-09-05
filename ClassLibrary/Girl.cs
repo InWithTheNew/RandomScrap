@@ -1,15 +1,16 @@
-﻿using System;
-namespace ClassLibrary
+﻿namespace Entities
 {
 	public class Girl : Person
 	{
-		private string _gender = "Girl";
-
-        internal override int _height { get; }
-
-        public Girl()
-		{
-		}
+        public Girl(
+            string firstname,
+            string surname,
+            DateTime dob,
+            int height,
+            int weight)
+            : base(firstname, surname, dob, "female", height, weight)
+        {
+        }
     }
 }
 

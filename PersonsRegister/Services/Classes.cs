@@ -1,4 +1,4 @@
-﻿using ClassLibrary;
+﻿using Entities;
 using Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,13 +9,30 @@ namespace PersonsRegister.Services
 {
     public class Classes
     {
+        /*
+        // what are we doing / what do we want to happen:
+        // 
+        // we have a db with 2 tables: Person and Class. We have "entities"/"models"/classes that represent these tables *in code*.
+        // we want a Factory pattern using an IOC container to allow us to talk to the db using EF.
+        // 
+        // how can we do this:
+        // create a SqlFactory and use this in IOC. This factory will let us "new up" sql "managers"/"services" foreach of the db tables. We could try to use generics for this.
+        // IOC: we don't want to register our db entities to IOC, because they're runtime logic. 
+        */
+
         public static IServiceProvider ClassesProvider()
         {
             IServiceCollection x = new ServiceCollection();
 
-            x.AddSingleton<IPerson, Person>();
-            x.AddSingleton<IClass, Class>();
-            x.AddSingleton<ISqlServerConnection, SqlConnection>();
+            //x.AddSingleton<IPerson, Person>();
+            //x.AddSingleton<IClass, Class>();
+            //x.AddSingleton<ISqlServerConnection, SqlConnection>();
+
+            x.AddSingleton<IConnectionSettings>(new ConnectionSettings("myconnectionstring"));
+
+            //x.AddSingleton<ISqlConnectionFactory, SqlConnectionFactory>();
+            // create an ioc extension method (extend IServiceCollection) in the ConnectionContexts project, method called "addSql" and add the SqlConnectionFactory to services.
+
             return x.BuildServiceProvider();
         }
 
@@ -27,11 +44,8 @@ namespace PersonsRegister.Services
             //var Person1 = ClassesProvider().GetRequiredService(IPerson);
 
             // Create new class with _connectionString
-            var Class1 = ClassesProvider().GetRequiredService<IClass>();
-            Class1.AddStudentToClass();
-
-
+            var class1 = ClassesProvider().GetRequiredService<IClass>();
+            class1.AddStudentToClass(null);
         }
-
     }
 }
