@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConnectionContexts
 {
-    public interface ISqlConnection<T>
-        where T : class
+    public interface ISqlConnection
     {
-        DbSet<T> Entities { get; set; }
+        DbSet<Person> Persons { get; set; }
+
+        int SaveChanges();
     }
 }

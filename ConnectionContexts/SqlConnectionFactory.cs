@@ -11,9 +11,10 @@ namespace ConnectionContexts
             _connectionSettings = connectionSettings ?? throw new ArgumentNullException(nameof(connectionSettings));
         }
 
-        public ISqlConnection<Person> CreatePersonsConnection()
+        public ISqlConnection PersonsConnection()
         {
-            return new SqlConnection<Person>(_connectionSettings.ConnectionString);
+            return new SqlConnection(_connectionSettings.ConnectionString);
         }
+
     }
 }

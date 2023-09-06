@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace ConnectionContexts
 {
-    internal sealed class SqlConnection<T> : DbContext, ISqlConnection<T>
-        where T : class
+    internal sealed class SqlConnection : DbContext, ISqlConnection
     {
         public readonly string _connectionString;
 
@@ -12,11 +12,22 @@ namespace ConnectionContexts
             _connectionString = connectionString;
         }
 
-        public DbSet<T> Entities { get; set; }
+        public DbSet<Person> Persons { get; set; }
+
+        public override int SaveChanges()
+        { 
+            return base.SaveChanges(true);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(_connectionString);
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Person>().HasKey(x => x.Id);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Entities;
+using System.Configuration;
 
 namespace ConnectionContexts
 {
     public interface ISqlConnectionFactory
     {
-        ISqlConnection<Person> CreatePersonsConnection();
+        ISqlConnection PersonsConnection();
+        
     }
 }
