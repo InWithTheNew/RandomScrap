@@ -45,25 +45,22 @@ namespace PersonsRegister.Controllers
             return person;
         }
 
+        [HttpGet("search")]
+
+        public List<Person> Get()
+        {
+            var s = _sqlConnectionFactory.PersonsConnection();
+            var person = s.Persons.ToList();
+
+            return person;
+        }
+
         [HttpGet("search/{surname}")]
 
         public List<Person> Get(string surname)
         {
             var s = _sqlConnectionFactory.PersonsConnection();
             var person = s.Persons.Where(x => x.Surname == surname).ToList() ;
-            //var list = person.Select(s => new { s.Id, s.FirstName }).ToList();
-
-            //return person.Select(u => new Person()
-            //{
-            //    FirstName = u.FirstName,
-            //    Surname = u.Surname,
-            //    Dob = u.Dob,
-            //    Gender = u.Gender,
-            //    Height = u.Height,
-            //    Weight = u.Weight,
-
-
-            //});
 
             return person;
         }
